@@ -1175,15 +1175,154 @@ article:hover img {
 /* ── end scroll progress timeline ── */
 
 footer {
-  text-align: center;
-  padding: 2rem;
-  background: #16213e;
-  color: #7070a0;
-  font-size: 0.85rem;
-  margin-top: 2rem;
+  background: linear-gradient(180deg, #0d1b2a 0%, #0a0a1a 100%);
+  color: #a0a8c8;
+  font-size: 0.875rem;
+  margin-top: 3rem;
+  border-top: 1px solid #1e2d4a;
 }
 
-footer a { color: #e94560; text-decoration: none; }
+footer a {
+  color: #e94560;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer a:hover { color: #ff6b84; text-decoration: underline; }
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+}
+
+/* Mission block */
+.footer-mission {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.footer-logo {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.footer-site-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e0e8ff;
+  margin: 0 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-description-fa {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #c0c8e8;
+  margin: 0 0 0.5rem;
+  direction: rtl;
+}
+
+.footer-description-en {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #7080a0;
+  margin: 0;
+  direction: ltr;
+  font-style: italic;
+}
+
+/* Divider */
+.footer-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #2a3a5a, transparent);
+  margin: 2rem 0;
+}
+
+/* Sources */
+.footer-sources {
+  margin-bottom: 1rem;
+}
+
+.footer-sources-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6070a0;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.footer-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-sources-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  direction: rtl;
+}
+
+.footer-source-type {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  background: #1e2d4a;
+  color: #6080b0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-copyright {
+  margin: 0;
+  color: #5060808;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #607090;
+}
+
+.footer-url {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #3a4a6a;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Mobile footer */
+@media (max-width: 599px) {
+  .footer-inner {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .footer-description-en {
+    display: none;
+  }
+
+  .footer-sources-list li {
+    flex-wrap: wrap;
+  }
+}
 
 /* Mobile Farsi readability */
 @media screen and (max-width: 599px) {
