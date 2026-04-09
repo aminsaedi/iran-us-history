@@ -43,6 +43,10 @@
   }
   </script>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+  <link rel="shortcut icon" href="{{ '/assets/favicon.svg' | relative_url }}">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,8 +56,10 @@
 <body>
 
 <header>
+  <div class="site-logo">😈</div>
   <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
+  <p class="title-en">{{ site.title_en }}</p>
+  <p>{{ site.description_fa }}</p>
 </header>
 
 <nav class="era-nav">
