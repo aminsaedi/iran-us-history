@@ -50,7 +50,8 @@ layout: default
     </h2>
     <div class="grid-wrapper">
       {% for event in era_group.items %}
-      <article{% if event.featured %} class="featured"{% endif %} data-category="{{ event.category }}" data-era="{{ event.era_id }}" data-search="{{ event.title | append: ' ' | append: event.year | append: ' ' | append: event.category_label | append: ' ' | append: event.era_title | append: ' ' | append: (event.content | strip_html | truncatewords: 150) | xml_escape }}">
+      {% assign event_text = event.content | strip_html | truncatewords: 150 %}
+      <article{% if event.featured %} class="featured"{% endif %} data-category="{{ event.category }}" data-era="{{ event.era_id }}" data-search="{{ event.title | append: ' ' | append: event.year | append: ' ' | append: event.category_label | append: ' ' | append: event.era_title | append: ' ' | append: event_text | xml_escape }}">
         <span class="year-badge">{{ event.year }}</span>
         <span class="category cat-{{ event.category }}">{{ event.category_label }}</span>
         <h3><a href="{{ event.url | relative_url }}" class="event-link">{{ event.title }}</a></h3>
