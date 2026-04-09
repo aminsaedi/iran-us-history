@@ -1,0 +1,45 @@
+# The Great Devil — US Interventions in Iran
+# https://thegreatdevil.com
+
+> A documented timeline of over 50 US interventions in Iran's internal affairs,
+> from 1900 to today — coups, sanctions, cyber attacks, assassinations, and military strikes.
+> Content is in Farsi (Persian) with English metadata.
+
+## About This Site
+
+This site documents historical US actions that directly interfered with Iran's sovereignty,
+political system, economy, and people. Events are organized by era from 1900 to 2025.
+
+Each event page includes:
+- Year and category (coup, sanction, military, cyber, intelligence, diplomatic)
+- Detailed description in Farsi
+- Historical images where available
+- Sources from Wikipedia, Britannica, USIP Iran Primer, GWU National Security Archive
+
+## Key Historical Events Documented
+
+- 1953: CIA-backed coup overthrow of PM Mohammad Mossadegh (Operation Ajax/TPAJAX)
+- 1957: CIA assistance in establishing SAVAK (Shah's secret police)
+- 1980-1988: US support for Saddam Hussein's Iraq against Iran
+- 1985-1986: Iran-Contra affair (secret arms sales to Iran)
+- 1988: USS Vincennes shooting down Iran Air Flight 655 (290 civilians killed)
+- 1995-1996: Clinton executive orders banning US trade with Iran
+- 2009-2010: Stuxnet cyberweapon targeting Natanz nuclear facility
+- 2015: JCPOA nuclear deal
+- 2018: Trump's unilateral withdrawal from JCPOA
+- 2020: Assassination of General Qasem Soleimani
+- 2025: Direct US military strikes on Iranian soil
+
+## Site Structure
+
+- Homepage: Timeline organized by era with grid layout
+- /events/{slug}/: Individual detailed page for each event
+- /sitemap.xml: Auto-generated sitemap (updated on every deploy)
+- /robots.txt: Open to all crawlers
+
+## Sources
+
+- Wikipedia: https://en.wikipedia.org/wiki/CIA_activities_in_Iran
+- Britannica: https://www.britannica.com/topic/US-Iran-Relations-A-Timeline
+- Iran Primer (USIP): https://iranprimer.usip.org/resource/timeline-us-sanctions
+- GWU National Security Archive: https://nsarchive2.gwu.edu/NSAEBB/NSAEBB435/
