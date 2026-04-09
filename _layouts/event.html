@@ -14,17 +14,39 @@ layout: default
     </nav>
 
     <article class="event-detail">
-      <div class="event-meta">
-        <span class="year-badge large">{{ page.year }}</span>
-        <span class="category cat-{{ page.category }}">{{ page.category_label }}</span>
-      </div>
-
-      <h1 class="event-title">{{ page.title }}</h1>
 
       {% if page.image %}
-      <figure class="event-image">
-        <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
-      </figure>
+      <!-- Full-bleed hero with image background -->
+      <div class="event-hero" style="background-image: url('{{ page.image }}')">
+        <div class="event-hero-overlay"></div>
+        <div class="event-hero-content">
+          <div class="event-meta">
+            <span class="year-badge large">{{ page.year }}</span>
+            <span class="category cat-{{ page.category }}">{{ page.category_label }}</span>
+          </div>
+          <h1 class="event-title">{{ page.title }}</h1>
+          {% if page.description %}
+          <p class="event-hero-desc">{{ page.description }}</p>
+          {% endif %}
+        </div>
+        <div class="event-hero-image-credit" aria-hidden="true">
+          <figure class="event-image-hidden">
+            <img src="{{ page.image }}" alt="{{ page.title }}" loading="eager" style="display:none">
+          </figure>
+        </div>
+      </div>
+      {% else %}
+      <!-- No image: text-only header -->
+      <div class="event-header-plain">
+        <div class="event-meta">
+          <span class="year-badge large">{{ page.year }}</span>
+          <span class="category cat-{{ page.category }}">{{ page.category_label }}</span>
+        </div>
+        <h1 class="event-title">{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="event-hero-desc">{{ page.description }}</p>
+        {% endif %}
+      </div>
       {% endif %}
 
       <div class="event-body">
@@ -33,11 +55,11 @@ layout: default
 
     {% if page.sources %}
     <section class="sources-section" aria-labelledby="sources-heading">
-      <h2 id="sources-heading" class="sources-title">منابع مورد استفاده</h2>
+      <h2 id="sources-heading" class="sources-title">منابع و پانوشت‌ها</h2>
       <p class="sources-intro">این رویداد بر اساس اسناد اولیه، آرشیوهای طبقه‌بندی‌زدایی‌شده و پژوهش‌های دانشگاهی تدوین شده است.</p>
-      <ul class="sources-list">
+      <ol class="footnote-list">
         {% for source in page.sources %}
-        <li class="source-item">
+        <li class="footnote-item">
           <span class="source-type source-type-{{ source.type | default: 'general' }}">{{ source.type_label | default: 'منبع' }}</span>
           <div class="source-content">
             {% if source.url %}
@@ -52,7 +74,7 @@ layout: default
           </div>
         </li>
         {% endfor %}
-      </ul>
+      </ol>
     </section>
     {% endif %}
 
