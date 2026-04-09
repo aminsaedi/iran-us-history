@@ -5,6 +5,13 @@ body {
   color: #e0e0e0;
   font-family: 'Vazirmatn', sans-serif;
   direction: rtl;
+  text-align: right;
+  /* Farsi typography improvements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1;
+  hyphens: none;
+  word-spacing: 0.05em;
 }
 
 header {
@@ -25,7 +32,7 @@ header h1 {
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.3rem;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .title-en {
@@ -55,7 +62,7 @@ header p { color: #a0a0c0; font-size: 0.9rem; }
 .era-nav a {
   color: #a0a0c0;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   padding: 0.3rem 0.7rem;
   border-radius: 20px;
   border: 1px solid #2a2a4a;
@@ -122,7 +129,7 @@ article h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.
   margin-bottom: 0.5rem;
 }
 
-article p { font-size: 0.9rem; color: #b0b0c8; line-height: 1.7; }
+article p { font-size: 0.95rem; color: #b0b0c8; line-height: 1.9; }
 
 article img {
   width: 100%;
@@ -134,11 +141,11 @@ article img {
 
 .category {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   padding: 0.1rem 0.4rem;
   border-radius: 8px;
   margin-bottom: 0.4rem;
-  margin-right: 0.3rem;
+  margin-inline-end: 0.3rem;
 }
 
 .cat-coup     { background: #4a1020; color: #ff6b8a; }
@@ -225,10 +232,11 @@ article img {
 }
 
 .event-body {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #c8c8d8;
-  line-height: 1.9;
+  line-height: 2.1;
   margin-bottom: 2rem;
+  overflow-wrap: break-word;
 }
 
 .event-era-info {
@@ -322,3 +330,34 @@ footer {
 }
 
 footer a { color: #e94560; text-decoration: none; }
+
+/* Mobile Farsi readability */
+@media screen and (max-width: 599px) {
+  body {
+    font-size: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  .event-title {
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .event-body {
+    font-size: 1.05rem;
+    line-height: 2.0;
+  }
+
+  article p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  .era-nav a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
