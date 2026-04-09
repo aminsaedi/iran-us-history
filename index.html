@@ -73,7 +73,8 @@ layout: default
       <div class="era-range-tag">{{ first_event.era_range }}</div>
     </div>
     <div class="grid-wrapper">
-      {% for event in era_group.items %}
+      {% assign sorted_era_events = era_group.items | sort: "name" %}
+      {% for event in sorted_era_events %}
       {% assign event_text = event.content | strip_html | truncatewords: 150 %}
       <article{% if event.featured %} class="featured"{% endif %} data-category="{{ event.category }}" data-era="{{ event.era_id }}" data-search="{{ event.title | append: ' ' | append: event.year | append: ' ' | append: event.category_label | append: ' ' | append: event.era_title | append: ' ' | append: event_text | xml_escape }}">
         {% if event.featured %}
