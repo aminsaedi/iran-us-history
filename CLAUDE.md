@@ -1,8 +1,11 @@
 # CLAUDE.md
 
-## Project: Iran-US History Timeline
+## Project: شیطان بزرگ — The Great Devil
 
-Jekyll static site documenting US interventions in Iran's internal affairs.
+Jekyll static site at **https://thegreatdevil.com** — documenting US interventions in Iran's internal affairs.
+
+**GitHub repo:** https://github.com/aminsaedi/thegreatdevil  
+**Local working dir:** /home/amin/iran-us-history
 
 ## Structure
 
