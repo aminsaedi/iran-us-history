@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<!-- Scroll Progress Timeline (TGD-014) -->
+<div class="vtl-wrap" id="vtl-wrap" aria-hidden="true">
+  <div class="vtl-fill" id="vtl-fill"></div>
+</div>
+<div class="vtl-pill" id="vtl-pill" aria-hidden="true"></div>
+
 <section class="hero" aria-label="معرفی">
   <div class="hero-content">
     <div class="hero-eyebrow">گاهشمار مستند | ۱۹۰۰ – اکنون</div>
@@ -575,5 +581,89 @@ layout: default
       else allBtn.classList.remove('active');
     }
   };
+})();
+</script>
+
+<script>
+/* ── Scroll Progress Timeline (TGD-014) ── */
+(function() {
+  var ERA_CLR = {
+    'era-1900': '#4a90c4',
+    'era-1950': '#e05060',
+    'era-1970': '#e09030',
+    'era-1980': '#d04060',
+    'era-1990': '#38b87a',
+    'era-2000': '#a06be0',
+    'era-2010': '#38b0d8',
+    'era-2020': '#e0b030'
+  };
+
+  var fill = document.getElementById('vtl-fill');
+  var pill = document.getElementById('vtl-pill');
+  var wrap = document.getElementById('vtl-wrap');
+  if (!fill || !pill || !wrap) return;
+
+  /* Collect era sections once DOM is ready */
+  var sections = [];
+  document.querySelectorAll('.era-section[data-era]').forEach(function(sec) {
+    var eraId = sec.getAttribute('data-era');
+    var rangeEl = sec.querySelector('.era-range');
+    sections.push({
+      el: sec,
+      era: eraId,
+      color: ERA_CLR[eraId] || '#e94560',
+      label: rangeEl ? rangeEl.textContent.trim() : eraId
+    });
+  });
+
+  /* Build era boundary tick marks on the bar */
+  function buildTicks() {
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0 || sections.length < 2) return;
+    wrap.querySelectorAll('.vtl-era-tick').forEach(function(t) { t.remove(); });
+    sections.forEach(function(s, i) {
+      if (i === 0) return;
+      var pct = (s.el.offsetTop / docH) * 100;
+      var tick = document.createElement('div');
+      tick.className = 'vtl-era-tick';
+      tick.style.left = Math.min(pct, 99) + '%';
+      wrap.appendChild(tick);
+    });
+  }
+
+  /* Determine which era the user is currently viewing */
+  function currentSection() {
+    var scrollMid = window.scrollY + window.innerHeight * 0.35;
+    var found = sections[0];
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollMid) found = s;
+    });
+    return found;
+  }
+
+  var hideTimer;
+  function onScroll() {
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0) return;
+    var pct = Math.min(100, (window.scrollY / docH) * 100);
+    fill.style.width = pct + '%';
+
+    var sec = currentSection();
+    if (sec) {
+      fill.style.backgroundColor = sec.color;
+      pill.textContent = sec.label;
+    }
+
+    clearTimeout(hideTimer);
+    pill.classList.add('vtl-visible');
+    hideTimer = setTimeout(function() {
+      pill.classList.remove('vtl-visible');
+    }, 1800);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function() { buildTicks(); onScroll(); });
+
+  setTimeout(function() { buildTicks(); onScroll(); }, 150);
 })();
 </script>
