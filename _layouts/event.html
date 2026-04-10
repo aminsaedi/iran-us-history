@@ -230,9 +230,9 @@ layout: default
 
     <article class="event-detail">
 
-      {% if page.image %}
+      {% if page.image %}{% assign hero_img_webp = page.image | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
       <!-- Full-bleed hero with image background -->
-      <div class="event-hero" style="background-image: url('{{ page.image }}')">
+      <div class="event-hero" style="background-image: url('{{ page.image }}');background-image:image-set(url('{{ hero_img_webp }}') 1x,url('{{ page.image }}') 1x)">
         <div class="event-hero-overlay"></div>
         <div class="event-hero-content">
           <div class="event-meta">
@@ -246,7 +246,7 @@ layout: default
         </div>
         <div class="event-hero-image-credit" aria-hidden="true">
           <figure class="event-image-hidden">
-            <img src="{{ page.image }}" alt="{{ page.title }}" loading="eager" style="display:none" onerror="this.closest('.event-hero').style.backgroundImage='none'">
+            <img src="{{ hero_img_webp }}" alt="{{ page.title }}" loading="eager" style="display:none" onerror="this.closest('.event-hero').style.backgroundImage='none'">
           </figure>
         </div>
       </div>

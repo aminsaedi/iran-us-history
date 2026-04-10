@@ -82,7 +82,7 @@ layout: default
         <div class="timeline-date">{{ event.year }}</div>
         <article{% if event.featured %} class="featured"{% endif %}>
           {% if event.featured %}
-            {% if event.image %}<div class="featured-banner-bg" style="background-image:url('{{ event.image }}')" aria-hidden="true"></div>{% endif %}
+            {% if event.image %}{% assign img_webp = event.image | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}<div class="featured-banner-bg" style="background-image:url('{{ event.image }}');background-image:image-set(url('{{ img_webp }}') 1x,url('{{ event.image }}') 1x)" aria-hidden="true"></div>{% endif %}
             <div class="featured-overlay" aria-hidden="true"></div>
             <div class="featured-content">
               <div class="featured-eyebrow">رویداد برجسته</div>
@@ -97,9 +97,12 @@ layout: default
               </div>
             </div>
           {% else %}
-            {% if event.image %}
+            {% if event.image %}{% assign card_img_webp = event.image | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
             <a href="{{ event.url | relative_url }}" aria-label="{{ event.title }}">
-              <img src="{{ event.image }}" alt="{{ event.title }}" loading="lazy" onerror="this.closest('a').style.display='none'">
+              <picture>
+                <source srcset="{{ card_img_webp }}" type="image/webp">
+                <img src="{{ event.image }}" alt="{{ event.title }}" loading="lazy" onerror="this.closest('a').style.display='none'">
+              </picture>
             </a>
             {% endif %}
             <div class="card-meta">
