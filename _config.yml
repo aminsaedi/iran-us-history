@@ -25,6 +25,11 @@ defaults:
     values:
       layout: event
 
+feed:
+  collections:
+    events:
+      path: "/feed.xml"
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
