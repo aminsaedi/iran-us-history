@@ -31,7 +31,7 @@ layout: default
         </div>
         <div class="event-hero-image-credit" aria-hidden="true">
           <figure class="event-image-hidden">
-            <img src="{{ page.image }}" alt="{{ page.title }}" loading="eager" style="display:none">
+            <img src="{{ page.image }}" alt="{{ page.title }}" loading="eager" style="display:none" onerror="this.closest('.event-hero').style.backgroundImage='none'">
           </figure>
         </div>
       </div>
