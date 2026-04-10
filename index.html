@@ -98,7 +98,7 @@ layout: default
           {% else %}
             {% if event.image %}
             <a href="{{ event.url | relative_url }}" aria-label="{{ event.title }}">
-              <img src="{{ event.image }}" alt="{{ event.title }}" loading="lazy">
+              <img src="{{ event.image }}" alt="{{ event.title }}" loading="lazy" onerror="this.closest('a').style.display='none'">
             </a>
             {% endif %}
             <div class="card-meta">
