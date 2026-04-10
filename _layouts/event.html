@@ -427,11 +427,12 @@ layout: default
 <script>
 (function() {
   var toggle = document.getElementById('sourcesToggle');
-  var panel = document.getElementById('sourcesPanel');
   var sidebar = document.getElementById('sourcesSidebar');
+  if (!toggle || !sidebar) return;
 
   // Restore collapsed state from localStorage
-  var collapsed = localStorage.getItem('sourcesSidebarCollapsed') === 'true';
+  var collapsed = false;
+  try { collapsed = localStorage.getItem('sourcesSidebarCollapsed') === 'true'; } catch (e) {}
   if (collapsed) {
     sidebar.classList.add('collapsed');
     toggle.setAttribute('aria-expanded', 'false');
@@ -440,7 +441,7 @@ layout: default
   toggle.addEventListener('click', function() {
     var isCollapsed = sidebar.classList.toggle('collapsed');
     toggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
-    localStorage.setItem('sourcesSidebarCollapsed', isCollapsed);
+    try { localStorage.setItem('sourcesSidebarCollapsed', isCollapsed); } catch (e) {}
   });
 })();
 </script>
@@ -533,7 +534,8 @@ layout: default
   var tocSidebar = document.getElementById('tocSidebar');
   var tocToggle = document.getElementById('tocToggle');
   if (tocSidebar && tocToggle) {
-    var wasCollapsed = localStorage.getItem('tocSidebarCollapsed') === 'true';
+    var wasCollapsed = false;
+    try { wasCollapsed = localStorage.getItem('tocSidebarCollapsed') === 'true'; } catch (e) {}
     if (wasCollapsed) {
       tocSidebar.classList.add('collapsed');
       tocToggle.setAttribute('aria-expanded', 'false');
@@ -541,7 +543,7 @@ layout: default
     tocToggle.addEventListener('click', function() {
       var isCollapsed = tocSidebar.classList.toggle('collapsed');
       tocToggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
-      localStorage.setItem('tocSidebarCollapsed', isCollapsed);
+      try { localStorage.setItem('tocSidebarCollapsed', isCollapsed); } catch (e) {}
     });
   }
 
