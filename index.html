@@ -112,21 +112,27 @@ layout: default
             </div>
           {% else %}
             {% if event.image %}{% assign card_img_webp = event.image | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
-            <a href="{{ event.url | relative_url }}" aria-label="{{ event.title }}">
-              <picture>
-                <source srcset="{{ card_img_webp }}" type="image/webp">
-                <img src="{{ event.image }}" alt="{{ event.title }}" loading="lazy" onerror="this.closest('a').style.display='none'">
-              </picture>
-            </a>
+            <div class="card-img-wrap">
+              <a href="{{ event.url | relative_url }}" aria-label="{{ event.title }}">
+                <picture>
+                  <source srcset="{{ card_img_webp }}" type="image/webp">
+                  <img src="{{ event.image }}" alt="{{ event.title }}" loading="lazy" onerror="this.closest('.card-img-wrap').style.display='none'">
+                </picture>
+              </a>
+              <div class="card-img-overlay">
+                <span class="year-badge">{{ event.year }}</span>
+                <span class="category cat-{{ event.category }}">{{ event.category_label }}</span>
+              </div>
+            </div>
             {% endif %}
             {% assign reading_min = event.content | strip_html | number_of_words | plus: 199 | divided_by: 200 %}{% if reading_min < 1 %}{% assign reading_min = 1 %}{% endif %}{% assign rm_str = reading_min | append: "" | replace: '0', '۰' | replace: '1', '۱' | replace: '2', '۲' | replace: '3', '۳' | replace: '4', '۴' | replace: '5', '۵' | replace: '6', '۶' | replace: '7', '۷' | replace: '8', '۸' | replace: '9', '۹' %}
             <div class="card-meta">
-              <span class="year-badge">{{ event.year }}</span>
-              <span class="category cat-{{ event.category }}">{{ event.category_label }}</span>
+              {% unless event.image %}<span class="year-badge">{{ event.year }}</span>
+              <span class="category cat-{{ event.category }}">{{ event.category_label }}</span>{% endunless %}
               <span class="reading-time-badge">{{ rm_str }} دقیقه مطالعه</span>
             </div>
             <h3><a href="{{ event.url | relative_url }}" class="event-link">{{ event.title }}</a></h3>
-            <p>{{ event.content | strip_html | truncatewords: 60 }}</p>
+            {% if event.description %}<p>{{ event.description | truncate: 150 }}</p>{% else %}<p>{{ event.content | strip_html | truncatewords: 60 }}</p>{% endif %}
             <div class="card-footer">
               <a href="{{ event.url | relative_url }}" class="read-more">بیشتر بخوانید ›</a>
             </div>
