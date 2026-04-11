@@ -787,53 +787,62 @@ main { padding: 2rem; max-width: 1400px; margin: auto; }
   }
 }
 
-/* Featured events — dramatic full-width banner (TGD-021) */
+/* Featured events — full-width cinematic banner (TGD-021 / TGD-101) */
 article.featured {
-  min-height: 420px;
+  min-height: 500px;
   position: relative;
   overflow: hidden;
   border: none;
   border-right: none;
-  border-radius: 12px;
+  border-radius: 0;
   background: #0d1a30;
   padding: 0;
   display: block;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
 }
+
+/* Category-coloured gradient background + top accent bar for featured events */
+.timeline-item[data-category="coup"]     article.featured { background: linear-gradient(135deg, #1a060d, #2a0c1a); border-top: 4px solid #e8304f; }
+.timeline-item[data-category="military"] article.featured { background: linear-gradient(135deg, #1a0e06, #2a1a08); border-top: 4px solid #f5903a; }
+.timeline-item[data-category="sanction"] article.featured { background: linear-gradient(135deg, #06121a, #0a1e2a); border-top: 4px solid #3aacf5; }
+.timeline-item[data-category="intel"]    article.featured { background: linear-gradient(135deg, #10061a, #1a0a2a); border-top: 4px solid #b93af5; }
+.timeline-item[data-category="diplo"]    article.featured { background: linear-gradient(135deg, #1a160a, #201c0e); border-top: 4px solid #f5e03a; }
+.timeline-item[data-category="cyber"]    article.featured { background: linear-gradient(135deg, #061a10, #0a2016); border-top: 4px solid #3af5a0; }
 
 article.featured .featured-banner-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center 20%;
-  filter: brightness(0.32) saturate(1.15);
-  transition: transform 0.7s ease, filter 0.7s ease;
+  filter: brightness(0.30) saturate(1.2);
+  transition: transform 0.8s ease, filter 0.8s ease;
   will-change: transform;
 }
 
 article.featured:hover .featured-banner-bg {
-  transform: scale(1.04);
-  filter: brightness(0.42) saturate(1.25);
+  transform: scale(1.05);
+  filter: brightness(0.42) saturate(1.3);
 }
 
 article.featured .featured-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    160deg,
+    150deg,
     rgba(5, 12, 26, 0) 0%,
-    rgba(5, 12, 26, 0.55) 40%,
-    rgba(5, 12, 26, 0.92) 100%
+    rgba(5, 12, 26, 0.45) 35%,
+    rgba(5, 12, 26, 0.88) 100%
   );
 }
 
 article.featured .featured-content {
   position: relative;
   z-index: 2;
-  padding: 2.5rem 2.75rem;
+  padding: 3rem 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 420px;
+  min-height: 500px;
   gap: 0;
 }
 
@@ -859,25 +868,25 @@ article.featured .featured-eyebrow::before {
 }
 
 article.featured h3 {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 800;
-  line-height: 1.3;
-  margin-bottom: 0.9rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
   color: #fff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.8);
 }
 
 article.featured p {
-  font-size: 1rem;
-  max-width: 70ch;
-  line-height: 1.9;
-  color: #c0c0da;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  font-size: 1.05rem;
+  max-width: 72ch;
+  line-height: 1.85;
+  color: #ccd0e8;
+  margin-bottom: 1.4rem;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.7);
 }
 
 article.featured .card-meta {
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 article.featured .year-badge {
@@ -885,41 +894,79 @@ article.featured .year-badge {
   padding: 0.22rem 0.7rem;
 }
 
+/* Prominent CTA button for featured events */
 article.featured .read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e94560;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem 1.75rem;
   font-size: 1rem;
-  padding: 0.55rem 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(233,69,96,0.4);
+  align-self: flex-start;
+}
+
+article.featured .read-more:hover {
+  background: #c01a38;
+  transform: translateX(-4px);
+  box-shadow: 0 6px 22px rgba(233,69,96,0.55);
 }
 
 @media screen and (max-width: 600px) {
-  article.featured .featured-content { padding: 1.5rem; min-height: 320px; }
-  article.featured { min-height: 320px; }
-  article.featured h3 { font-size: 1.45rem; }
+  article.featured .featured-content { padding: 1.75rem 1.5rem; min-height: 360px; }
+  article.featured { min-height: 360px; }
+  article.featured h3 { font-size: 1.55rem; }
 }
 
-/* Featured timeline items — grid row-span: 2
-   Standard card row height is ~210 px; featured items span 2 rows (≥ 420 px).
+/* Featured timeline items — full-width banner spanning the entire main content width.
+   Breaks out of .timeline-wrapper's right padding and <main>'s side padding.
    Scoped to .timeline-item.featured-item to avoid affecting event detail pages. */
 :root {
   --card-row-height: 210px;
 }
 
 .timeline-item.featured-item {
-  min-height: calc(2 * var(--card-row-height));
+  min-height: 500px;
+  padding-right: 0;
+  margin-right: calc(-60px - 2rem);  /* counter .timeline-wrapper padding-right + main padding-right */
+  margin-left: -2rem;                /* counter main padding-left for full-width flush */
+  margin-bottom: 2.5rem;
 }
 
+/* Hide the default spine node/connector for featured items — the banner is its own anchor */
+.timeline-item.featured-item > .timeline-node { display: none; }
+.timeline-item.featured-item > .timeline-date { display: none; }
+.timeline-item.featured-item::before { display: none; }
+
 .timeline-item.featured-item article.featured {
-  min-height: calc(2 * var(--card-row-height));
+  min-height: 500px;
 }
 
 .timeline-item.featured-item article.featured .featured-content {
-  min-height: calc(2 * var(--card-row-height));
+  min-height: 500px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 900px) {
+  .timeline-item.featured-item {
+    margin-right: calc(-140px - 2rem); /* wider wrapper padding on large screens */
+  }
+}
+
+@media screen and (max-width: 599px) {
   :root { --card-row-height: 160px; }
-  .timeline-item.featured-item { min-height: calc(2 * var(--card-row-height)); }
-  .timeline-item.featured-item article.featured { min-height: calc(2 * var(--card-row-height)); }
-  .timeline-item.featured-item article.featured .featured-content { min-height: calc(2 * var(--card-row-height)); }
+  .timeline-item.featured-item {
+    min-height: 360px;
+    margin-right: calc(-40px - 1rem); /* narrower wrapper padding + smaller main padding */
+    margin-left: -1rem;
+  }
+  .timeline-item.featured-item article.featured { min-height: 360px; }
+  .timeline-item.featured-item article.featured .featured-content { min-height: 360px; }
 }
 
 article {
@@ -945,6 +992,15 @@ article {
   padding: 1.75rem;
 }
 
+/* Featured articles inside the timeline — override regular card styles so banner treatment is preserved */
+.timeline-wrapper article.featured {
+  border: none;
+  border-right: none;
+  background: #0d1a30;
+  padding: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
+}
+
 /* Category accent border — scoped via parent .timeline-item[data-category] */
 .timeline-item[data-category="coup"] article     { border-right-color: #e8304f; }
 .timeline-item[data-category="sanction"] article { border-right-color: #3aacf5; }
@@ -968,12 +1024,28 @@ article:hover {
   border-color: #a8c0d8;
 }
 
+/* Featured article hover — keep dark cinematic treatment, no card-lift */
+.timeline-wrapper article.featured:hover {
+  transform: none;
+  background: #0d1a30;
+  border-color: transparent;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.45);
+}
+
 .timeline-item[data-category="coup"] article:hover     { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(232,48,79,0.30);  border-right-color: #c01a38; background: rgba(253, 238, 241, 0.97); }
 .timeline-item[data-category="sanction"] article:hover { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(58,172,245,0.30); border-right-color: #1a8fd1; background: rgba(237, 247, 255, 0.97); }
 .timeline-item[data-category="military"] article:hover { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(245,144,58,0.30); border-right-color: #d1701a; background: rgba(255, 246, 237, 0.97); }
 .timeline-item[data-category="cyber"] article:hover    { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(58,245,160,0.30); border-right-color: #1ad177; background: rgba(237, 255, 248, 0.97); }
 .timeline-item[data-category="diplo"] article:hover    { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(245,224,58,0.30); border-right-color: #c4b010; background: rgba(255, 254, 237, 0.97); }
 .timeline-item[data-category="intel"] article:hover    { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(185,58,245,0.30); border-right-color: #951ad1; background: rgba(250, 237, 255, 0.97); }
+
+/* Featured article category hover — keep dark backgrounds, not light card hover colours */
+.timeline-item[data-category="coup"]     article.featured:hover { background: linear-gradient(135deg, #1a060d, #2a0c1a); border-color: transparent; box-shadow: 0 12px 50px rgba(232,48,79,0.35); }
+.timeline-item[data-category="military"] article.featured:hover { background: linear-gradient(135deg, #1a0e06, #2a1a08); border-color: transparent; box-shadow: 0 12px 50px rgba(245,144,58,0.35); }
+.timeline-item[data-category="sanction"] article.featured:hover { background: linear-gradient(135deg, #06121a, #0a1e2a); border-color: transparent; box-shadow: 0 12px 50px rgba(58,172,245,0.35); }
+.timeline-item[data-category="intel"]    article.featured:hover { background: linear-gradient(135deg, #10061a, #1a0a2a); border-color: transparent; box-shadow: 0 12px 50px rgba(185,58,245,0.35); }
+.timeline-item[data-category="diplo"]    article.featured:hover { background: linear-gradient(135deg, #1a160a, #201c0e); border-color: transparent; box-shadow: 0 12px 50px rgba(245,224,58,0.35); }
+.timeline-item[data-category="cyber"]    article.featured:hover { background: linear-gradient(135deg, #061a10, #0a2016); border-color: transparent; box-shadow: 0 12px 50px rgba(58,245,160,0.35); }
 
 article h3 { font-size: 1.55rem; font-weight: 700; color: #0d1b35; margin-bottom: 0.5rem; line-height: 1.4; }
 
