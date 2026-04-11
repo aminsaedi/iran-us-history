@@ -1239,26 +1239,20 @@ article:hover img {
   line-height: 2;
 }
 
-/* Sources section — academic footnote style */
+/* Sources section — academic reference list (Wikipedia-style) */
 .sources-section {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: #e4eef8;
-  border-radius: 10px;
-  border-right: 3px solid #e94560;
+  margin: 2.5rem 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid #b0b8cc;
 }
 
-.sources-title {
-  font-size: 1.1rem;
+.sources-section > .sources-title {
+  font-size: 0.82rem;
   font-weight: 700;
-  color: #e94560;
-  margin-bottom: 0.5rem;
-}
-
-.sources-intro {
-  font-size: 0.85rem;
-  color: #445566;
-  margin-bottom: 1.25rem;
+  color: #556080;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
 }
 
 /* Footnote-style ordered list */
@@ -1266,85 +1260,82 @@ article:hover img {
   list-style: none;
   padding: 0;
   margin: 0;
-  counter-reset: footnote-counter;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
 .footnote-item {
-  counter-increment: footnote-counter;
   display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-  padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(176, 196, 222, 0.7);
-  position: relative;
+  gap: 0.55rem;
+  align-items: baseline;
+  padding: 0.4rem 0;
 }
 
-.footnote-item:last-child {
-  border-bottom: none;
-}
-
-.footnote-item::before {
-  content: counter(footnote-counter) ".";
-  font-size: 0.78rem;
-  color: #e94560;
-  font-weight: 700;
+.footnote-num {
   flex-shrink: 0;
-  min-width: 1.5rem;
-  padding-top: 0.2rem;
+  font-size: 0.75rem;
+  color: #6678a0;
+  font-weight: 600;
+  min-width: 2.2rem;
   font-family: 'Vazirmatn', sans-serif;
   direction: ltr;
+  display: inline-block;
+  text-align: left;
 }
-
-.source-item {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
-
-.source-type {
-  flex-shrink: 0;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-top: 0.15rem;
-}
-
-.source-type-declassified { background: #7c3aed; color: #fff; }
-.source-type-academic     { background: #c8daf0; color: #1a3a70; }
-.source-type-archive      { background: #c8e8d4; color: #1a4a2a; }
-.source-type-official     { background: #f0dcc0; color: #6a3a00; }
-.source-type-journalism   { background: #f0c8d8; color: #5a1a2a; }
-.source-type-general      { background: #dcdcf0; color: #445566; }
 
 .source-content {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.1rem;
 }
 
 .sources-section .source-link {
   color: #1a3a8a;
   text-decoration: underline;
-  font-size: 0.95rem;
-  transition: color 0.2s;
+  text-decoration-color: rgba(26, 58, 138, 0.35);
+  text-underline-offset: 2px;
+  font-size: 0.87rem;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
-.sources-section .source-link:hover { color: #e94560; }
+.sources-section .source-link:hover {
+  color: #e94560;
+  text-decoration-color: rgba(233, 69, 96, 0.45);
+}
 
 .source-title {
   color: #1a1a2e;
-  font-size: 0.9rem;
+  font-size: 0.87rem;
 }
 
 .source-meta {
-  font-size: 0.78rem;
-  color: #6678a0;
+  font-size: 0.75rem;
+  color: #778899;
+  font-style: italic;
 }
+
+.source-type-text {
+  font-style: normal;
+  color: #8899aa;
+}
+
+/* Inline footnote reference anchors appended to body text by JS */
+.inline-fn-refs {
+  display: inline;
+  margin-inline-start: 0.25em;
+  white-space: nowrap;
+}
+.inline-fn-ref {
+  display: inline-block;
+  font-size: 0.7em;
+  vertical-align: super;
+  color: #1a3a8a;
+  text-decoration: none;
+  padding: 0 0.05em;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.inline-fn-ref:hover { color: #e94560; }
 
 .event-era-info {
   background: #dce8f8;
@@ -2409,6 +2400,9 @@ article.event-detail {
     margin-bottom: 0.5rem;
     font-size: 10pt;
   }
+
+  /* Hide inline superscript refs in print — full citations below */
+  .inline-fn-refs { display: none !important; }
 
   /* Show full URL after links */
   .source-link::after {
