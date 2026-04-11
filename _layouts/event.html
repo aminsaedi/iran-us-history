@@ -359,22 +359,18 @@ layout: default
 
     {% if page.sources %}
     <section class="sources-section" aria-labelledby="sources-heading">
-      <h2 id="sources-heading" class="sources-title">منابع و پانوشت‌ها</h2>
-      <p class="sources-intro">این رویداد بر اساس اسناد اولیه، آرشیوهای طبقه‌بندی‌زدایی‌شده و پژوهش‌های دانشگاهی تدوین شده است.</p>
+      <h2 id="sources-heading" class="sources-title">منابع</h2>
       <ol class="footnote-list">
         {% for source in page.sources %}
-        <li class="footnote-item">
-          <span class="source-type source-type-{{ source.type | default: 'general' }}">{{ source.type_label | default: 'منبع' }}</span>
+        <li id="ref-{{ forloop.index }}" class="footnote-item">
+          <span class="footnote-num" aria-hidden="true">[{{ forloop.index }}]</span>
           <div class="source-content">
             {% if source.url %}
             <a href="{{ source.url }}" target="_blank" rel="noopener noreferrer" class="source-link">{{ source.title }}</a>
             {% else %}
             <span class="source-title">{{ source.title }}</span>
             {% endif %}
-            <span class="source-meta">
-              {% if source.publisher %}{{ source.publisher }}{% endif %}
-              {% if source.year %} — {{ source.year }}{% endif %}
-            </span>
+            <span class="source-meta">{% if source.publisher %}{{ source.publisher }}{% endif %}{% if source.year %} — {{ source.year }}{% endif %}{% if source.type_label %} · <span class="source-type-text">{{ source.type_label }}</span>{% endif %}</span>
           </div>
         </li>
         {% endfor %}
@@ -706,6 +702,37 @@ layout: default
 
   // Set initial active link
   updateActiveLinks(0);
+})();
+</script>
+
+<script>
+/* Inline footnote references — append superscript [1][2]… to end of last body paragraph */
+(function() {
+  var sourcesSection = document.querySelector('.sources-section');
+  var eventBody = document.querySelector('.event-body');
+  if (!sourcesSection || !eventBody) return;
+
+  var footnoteItems = document.querySelectorAll('.footnote-item');
+  if (!footnoteItems.length) return;
+
+  var paras = eventBody.querySelectorAll('p');
+  if (!paras.length) return;
+
+  var lastPara = paras[paras.length - 1];
+  var container = document.createElement('span');
+  container.className = 'inline-fn-refs';
+  container.setAttribute('aria-label', 'منابع');
+
+  footnoteItems.forEach(function(item, i) {
+    var a = document.createElement('a');
+    a.href = '#ref-' + (i + 1);
+    a.className = 'inline-fn-ref';
+    a.setAttribute('aria-label', 'منبع ' + (i + 1));
+    a.textContent = '[' + (i + 1) + ']';
+    container.appendChild(a);
+  });
+
+  lastPara.appendChild(container);
 })();
 </script>
 
