@@ -894,18 +894,19 @@ article {
 /* Stronger card contrast for homepage event grid — scoped to timeline so event detail pages are unaffected */
 .timeline-wrapper article {
   border: 2px solid #9db8d4;
-  border-right: 4px solid transparent;
+  border-right: 5px solid transparent;
   background: #f7fafd;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.13), 0 1px 5px rgba(0, 0, 0, 0.08);
+  padding: 1.75rem;
 }
 
-/* Category accent border — colored by event type */
-article[data-category="coup"]     { border-right-color: #ff6b8a; }
-article[data-category="sanction"] { border-right-color: #6bc5ff; }
-article[data-category="military"] { border-right-color: #ffaa6b; }
-article[data-category="cyber"]    { border-right-color: #6bffaa; }
-article[data-category="diplo"]    { border-right-color: #fff06b; }
-article[data-category="intel"]    { border-right-color: #d06bff; }
+/* Category accent border — scoped via parent .timeline-item[data-category] */
+.timeline-item[data-category="coup"] article     { border-right-color: #e8304f; }
+.timeline-item[data-category="sanction"] article { border-right-color: #3aacf5; }
+.timeline-item[data-category="military"] article { border-right-color: #f5903a; }
+.timeline-item[data-category="cyber"] article    { border-right-color: #3af5a0; }
+.timeline-item[data-category="diplo"] article    { border-right-color: #f5e03a; }
+.timeline-item[data-category="intel"] article    { border-right-color: #b93af5; }
 
 article:hover {
   transform: translateY(-4px);
@@ -914,12 +915,20 @@ article:hover {
   border-color: #b0c4de;
 }
 
-article[data-category="coup"]:hover     { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(255,107,138,0.2); border-right-color: #ff8fab; }
-article[data-category="sanction"]:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(107,197,255,0.2); border-right-color: #86d3ff; }
-article[data-category="military"]:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(255,170,107,0.2); border-right-color: #ffba80; }
-article[data-category="cyber"]:hover    { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(107,255,170,0.2); border-right-color: #86ffba; }
-article[data-category="diplo"]:hover    { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(255,240,107,0.2); border-right-color: #fff380; }
-article[data-category="intel"]:hover    { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(208,107,255,0.2); border-right-color: #dc80ff; }
+/* Premium hover for homepage event cards */
+.timeline-wrapper article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.16), 0 6px 20px rgba(0, 0, 0, 0.10);
+  background: #eef4fc;
+  border-color: #a8c0d8;
+}
+
+.timeline-item[data-category="coup"] article:hover     { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(232,48,79,0.30);  border-right-color: #c01a38; background: rgba(253, 238, 241, 0.97); }
+.timeline-item[data-category="sanction"] article:hover { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(58,172,245,0.30); border-right-color: #1a8fd1; background: rgba(237, 247, 255, 0.97); }
+.timeline-item[data-category="military"] article:hover { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(245,144,58,0.30); border-right-color: #d1701a; background: rgba(255, 246, 237, 0.97); }
+.timeline-item[data-category="cyber"] article:hover    { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(58,245,160,0.30); border-right-color: #1ad177; background: rgba(237, 255, 248, 0.97); }
+.timeline-item[data-category="diplo"] article:hover    { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(245,224,58,0.30); border-right-color: #c4b010; background: rgba(255, 254, 237, 0.97); }
+.timeline-item[data-category="intel"] article:hover    { box-shadow: 0 14px 42px rgba(0,0,0,0.16), 0 6px 22px rgba(185,58,245,0.30); border-right-color: #951ad1; background: rgba(250, 237, 255, 0.97); }
 
 article h3 { font-size: 1.55rem; font-weight: 700; color: #0d1b35; margin-bottom: 0.5rem; line-height: 1.4; }
 
@@ -951,6 +960,12 @@ article p {
   border-radius: 8px 8px 0 0;
   overflow: hidden;
   aspect-ratio: 16 / 9;
+}
+
+/* Adjust card image bleed to match increased timeline card padding (1.75rem) */
+.timeline-wrapper .card-img-wrap {
+  width: calc(100% + 3.5rem);
+  margin: -1.75rem -1.75rem 1rem -1.75rem;
 }
 
 .card-img-wrap a {
@@ -2200,7 +2215,16 @@ footer a:hover { color: #ff6b84; text-decoration: underline; }
     padding: 1.25rem;
   }
 
+  .timeline-wrapper article {
+    padding: 1.25rem;
+  }
+
   .card-img-wrap {
+    width: calc(100% + 2.5rem);
+    margin: -1.25rem -1.25rem 0.85rem -1.25rem;
+  }
+
+  .timeline-wrapper .card-img-wrap {
     width: calc(100% + 2.5rem);
     margin: -1.25rem -1.25rem 0.85rem -1.25rem;
   }
