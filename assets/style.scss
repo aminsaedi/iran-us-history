@@ -589,70 +589,73 @@ main { padding: 2rem; max-width: 1400px; margin: auto; }
 
 .era-header {
   position: relative;
-  padding: 1.25rem 2rem 1rem;
-  margin-bottom: 1rem;
+  padding: 2.25rem 2rem 2rem;
+  margin: 0 -2rem 2rem; /* full-bleed: break out of main's 2rem padding */
   overflow: hidden;
-  background: linear-gradient(135deg, #d8e8f8 0%, #e4f0fc 100%);
-  border-right: 4px solid var(--era-accent, #e94560);
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.04);
+  background: #0c1828;
+  border-top: 3px solid var(--era-accent, #e94560);
+  border-right: none;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.14);
 }
 
-/* Large year as background watermark via ::before */
+/* Large year as prominent background accent */
 .era-header::before {
   content: attr(data-year);
   position: absolute;
-  left: -0.05em;
+  left: -0.02em;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 10rem;
+  font-size: 14rem;
   font-weight: 900;
   color: var(--era-accent, #e94560);
-  opacity: 0.07;
+  opacity: 0.11;
   line-height: 1;
   pointer-events: none;
   user-select: none;
+  letter-spacing: -0.04em;
 }
 
-/* Subtle top-edge glow line */
+/* Bottom accent line spanning full width */
 .era-header::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   left: 0;
   height: 1px;
-  background: linear-gradient(90deg, var(--era-accent, #e94560) 0%, transparent 70%);
-  opacity: 0.5;
+  background: linear-gradient(90deg, var(--era-accent, #e94560) 0%, transparent 60%);
+  opacity: 0.4;
 }
 
 .era-chapter-label {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
   color: var(--era-accent, #e94560);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+  opacity: 1;
 }
 
 .era-title {
-  color: #0d1b35;
-  font-size: clamp(2.2rem, 3.5vw, 2.6rem);
+  color: #eef2f8;
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.7rem 0;
   padding: 0;
   border: none;
-  line-height: 1.25;
+  line-height: 1.2;
   display: block;
 }
 
 .era-range-tag {
   display: inline-block;
-  padding: 0.2em 0.8em;
-  background: rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.1);
+  padding: 0.25em 0.9em;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 2px;
   font-size: 0.82rem;
-  color: #445566;
+  color: rgba(238,242,248,0.65);
 }
 
 /* ── Vertical Timeline Layout ── */
@@ -2206,7 +2209,7 @@ footer a:hover { color: #ff6b84; text-decoration: underline; }
   }
 
   .era-header::before {
-    font-size: 7rem;
+    font-size: 8rem;
   }
 
   .event-title {
@@ -2377,7 +2380,8 @@ footer a:hover { color: #ff6b84; text-decoration: underline; }
   }
 
   .era-header {
-    padding: 1.5rem 1.25rem 1.25rem;
+    padding: 1.75rem 1.25rem 1.5rem;
+    margin: 0 -1rem 1.5rem; /* adjust for mobile main padding of 1rem */
   }
 
   /* Ensure filter bar is usable on mobile */
