@@ -35,7 +35,7 @@ body {
   direction: rtl;
   text-align: right;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   /* Farsi typography improvements */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -576,7 +576,7 @@ main { padding: 2rem; max-width: 1400px; margin: auto; }
 
 .era-title {
   color: #0d1b35;
-  font-size: clamp(2rem, 3vw, 2.25rem);
+  font-size: clamp(2.2rem, 3.5vw, 2.6rem);
   font-weight: 700;
   margin: 0 0 0.75rem 0;
   padding: 0;
@@ -905,7 +905,7 @@ article[data-category="cyber"]:hover    { box-shadow: 0 8px 24px rgba(0,0,0,0.12
 article[data-category="diplo"]:hover    { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(255,240,107,0.2); border-right-color: #fff380; }
 article[data-category="intel"]:hover    { box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 16px rgba(208,107,255,0.2); border-right-color: #dc80ff; }
 
-article h3 { font-size: 1.3rem; font-weight: 600; color: #0d1b35; margin-bottom: 0.5rem; line-height: 1.5; }
+article h3 { font-size: 1.55rem; font-weight: 700; color: #0d1b35; margin-bottom: 0.5rem; line-height: 1.4; }
 
 .year-badge {
   display: inline-block;
@@ -922,7 +922,7 @@ article h3 { font-size: 1.3rem; font-weight: 600; color: #0d1b35; margin-bottom:
 article p {
   font-size: 1rem;
   color: #1A1A1A;
-  line-height: 1.7;
+  line-height: 1.8;
   flex: 1;
   margin-bottom: 0.5rem;
 }
@@ -1311,7 +1311,7 @@ article:hover img {
 
 /* Body headings as section markers */
 .event-body h2 {
-  font-size: 1.45rem;
+  font-size: 1.75rem;
   color: #e94560;
   margin: 2.25rem 0 0.75rem;
   padding-bottom: 0.4rem;
@@ -1319,7 +1319,7 @@ article:hover img {
 }
 
 .event-body h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #2a4a70;
   margin: 1.75rem 0 0.6rem;
 }
@@ -2190,12 +2190,12 @@ footer a:hover { color: #ff6b84; text-decoration: underline; }
   }
 
   article h3 {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
   }
 
   article p {
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   .era-nav a {
