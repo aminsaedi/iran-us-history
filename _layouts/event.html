@@ -194,6 +194,43 @@ layout: default
   .toc-mobile-nav { display: flex; flex-direction: column; gap: 0.1rem; }
 }
 
+/* ── Copy-link button & toast ── */
+.share-btn.copy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #1a2a4a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, opacity 0.2s;
+}
+.share-btn.copy-link:hover { background: #2a3a5a; }
+.share-btn.copy-link:active { opacity: 0.8; }
+
+.copy-toast {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.35rem 0.9rem;
+  background: #1a2a4a;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.copy-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* LCP hero image — positioned to fill the hero div, discovered by preload scanner */
 .event-hero picture { display: contents; }
 .event-hero-img {
@@ -355,7 +392,12 @@ layout: default
           <a href="https://t.me/share/url?url={{ site.url }}/events/{{ page.name }}/&text={{ page.title | url_encode }}%20({{ page.year | url_encode }})" target="_blank" rel="noopener noreferrer" class="share-btn telegram">تلگرام</a>
           <a href="https://twitter.com/intent/tweet?url={{ site.url }}/events/{{ page.name }}/&text={{ page.title | url_encode }}%20({{ page.year | url_encode }})" target="_blank" rel="noopener noreferrer" class="share-btn twitter">توئیتر / X</a>
           <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20({{ page.year | url_encode }})%20{{ site.url }}/events/{{ page.name }}/" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp">واتساپ</a>
+          <button class="share-btn copy-link" id="copyLinkBtn" aria-label="کپی لینک صفحه">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            کپی لینک
+          </button>
         </div>
+        <div id="copyToast" class="copy-toast" role="status" aria-live="polite">کپی شد!</div>
       </div>
 
       <div class="event-nav">
@@ -625,5 +667,43 @@ layout: default
 
   // Set initial active link
   updateActiveLinks(0);
+})();
+</script>
+
+<script>
+/* Copy-link button */
+(function() {
+  var btn = document.getElementById('copyLinkBtn');
+  var toast = document.getElementById('copyToast');
+  if (!btn || !toast) return;
+
+  var toastTimer;
+
+  btn.addEventListener('click', function() {
+    var url = window.location.href;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(showToast, showToast);
+    } else {
+      // Fallback for older browsers
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = url;
+        ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch (e) {}
+      showToast();
+    }
+  });
+
+  function showToast() {
+    clearTimeout(toastTimer);
+    toast.classList.add('show');
+    toastTimer = setTimeout(function() {
+      toast.classList.remove('show');
+    }, 2000);
+  }
 })();
 </script>
