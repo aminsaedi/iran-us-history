@@ -556,9 +556,9 @@ layout: default
       <div class="share-section">
         <h3>اشتراک‌گذاری</h3>
         <div class="share-buttons">
-          <a href="https://t.me/share/url?url={{ site.url }}/events/{{ page.name }}/&text={{ page.title | url_encode }}%20({{ page.year | url_encode }})" target="_blank" rel="noopener noreferrer" class="share-btn telegram">تلگرام</a>
-          <a href="https://twitter.com/intent/tweet?url={{ site.url }}/events/{{ page.name }}/&text={{ page.title | url_encode }}%20({{ page.year | url_encode }})" target="_blank" rel="noopener noreferrer" class="share-btn twitter">توئیتر / X</a>
-          <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20({{ page.year | url_encode }})%20{{ site.url }}/events/{{ page.name }}/" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp">واتساپ</a>
+          <a href="https://t.me/share/url?url={{ site.url }}{{ page.url }}&text={{ page.title | url_encode }}%20({{ page.year | url_encode }})" target="_blank" rel="noopener noreferrer" class="share-btn telegram">تلگرام</a>
+          <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title | url_encode }}%20({{ page.year | url_encode }})" target="_blank" rel="noopener noreferrer" class="share-btn twitter">توئیتر / X</a>
+          <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20({{ page.year | url_encode }})%20{{ site.url }}{{ page.url }}" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp">واتساپ</a>
           <button class="share-btn copy-link" id="copyLinkBtn" aria-label="کپی لینک صفحه">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             کپی لینک
