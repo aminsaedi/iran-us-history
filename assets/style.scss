@@ -533,15 +533,47 @@ main { padding: 2rem; max-width: 1400px; margin: auto; }
   pointer-events: none;
 }
 
+/* Year badge label next to each era node on the spine */
+.era-year-badge {
+  position: absolute;
+  /* RTL: spine is on the right; badge floats to the left of the node */
+  right: 42px; /* just left of the 20px node at right:15px → 15+20+7 = 42 */
+  top: calc(2rem + 1px); /* vertically centered with .era-era-node */
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--era-accent, #9ab8d8);
+  background: rgba(8, 15, 30, 0.88);
+  border: 1px solid var(--era-accent, rgba(154,184,216,0.35));
+  border-radius: 4px;
+  padding: 0.25em 0.55em;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  z-index: 4;
+  pointer-events: none;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.22);
+}
+
 @media screen and (min-width: 900px) {
   /* (TGD-102) Center spine */
   .era-timeline-rail::before { right: auto; left: 50%; transform: translateX(-50%); }
   .era-era-node { right: auto; left: calc(50% - 10px); }
+  /* RTL: on desktop center spine, badge appears to the LEFT (physical right) of the spine */
+  .era-year-badge {
+    right: auto;
+    left: calc(50% + 16px); /* 16px gap from the spine center */
+    top: calc(2rem + 1px);
+  }
 }
 
 @media screen and (max-width: 599px) {
   .era-timeline-rail::before { right: 14px; }
   .era-era-node { right: 7px; width: 14px; height: 14px; }
+  .era-year-badge {
+    right: 28px; /* adjusted for smaller node at right:7px + 14px width + 7px gap */
+    font-size: 0.6rem;
+    padding: 0.2em 0.4em;
+  }
 }
 
 .era-header {
