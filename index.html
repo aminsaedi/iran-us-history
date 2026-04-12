@@ -99,14 +99,6 @@ layout: default
       </div>
     </div>
   </div>
-  <div class="filter-group search-group">
-    <span class="filter-label">جستجو:</span>
-    <div class="search-wrapper">
-      <input type="search" id="search-input" class="search-input" placeholder="جستجو به فارسی یا انگلیسی…" autocomplete="off" dir="auto" aria-label="جستجو در رویدادها">
-      <button class="search-clear" id="search-clear" aria-label="پاک کردن جستجو" style="display:none">✕</button>
-    </div>
-    <span class="search-hint" id="search-hint"></span>
-  </div>
   <div class="filter-count" id="filter-count"></div>
 </div>
 
@@ -125,9 +117,8 @@ layout: default
     <div class="timeline-wrapper">
       {% assign sorted_era_events = era_group.items | sort: "name" %}
       {% for event in sorted_era_events %}
-      {% assign event_text = event.content | strip_html | truncatewords: 150 %}
       {% assign _ev_gy = event.path | split: "/" | last | split: "-" | first | plus: 0 %}{% assign _ev_sy = _ev_gy | minus: 621 %}{% capture _ev_sy_str %}{{ _ev_sy }}{% endcapture %}{% assign _ev_sy_fa = _ev_sy_str | replace: '0', '۰' | replace: '1', '۱' | replace: '2', '۲' | replace: '3', '۳' | replace: '4', '۴' | replace: '5', '۵' | replace: '6', '۶' | replace: '7', '۷' | replace: '8', '۸' | replace: '9', '۹' %}
-      <div class="timeline-item{% if event.featured %} featured-item{% endif %}" data-category="{{ event.category }}" data-era="{{ event.era_id }}" data-search="{{ event.title | append: ' ' | append: event.year | append: ' ' | append: event.category_label | append: ' ' | append: event.era_title | append: ' ' | append: event_text | xml_escape }}">
+      <div class="timeline-item{% if event.featured %} featured-item{% endif %}" data-category="{{ event.category }}" data-era="{{ event.era_id }}">
         <div class="timeline-node cat-node-{{ event.category }}" aria-hidden="true"></div>
         <div class="timeline-date">{{ event.year }}</div>
         <article{% if event.featured %} class="featured"{% endif %}>
@@ -189,50 +180,15 @@ layout: default
 (function() {
   var activeCat = 'all';
   var activeEra = 'all';
-  var activeSearch = '';
-
-  // Farsi/Arabic text normalization for search matching
-  function normalizeText(text) {
-    if (!text) return '';
-    return text
-      // Remove Arabic diacritics (harakat) and tatweel
-      .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
-      // Normalize Arabic ي to Persian ی
-      .replace(/\u064A/g, '\u06CC')
-      // Normalize Arabic ك to Persian ک
-      .replace(/\u0643/g, '\u06A9')
-      // Normalize Hamza-bearing alef variants to plain alef
-      .replace(/[\u0622\u0623\u0625\u0671]/g, '\u0627')
-      // Normalize ؤ to و
-      .replace(/\u0624/g, '\u0648')
-      // Normalize ئ to ی
-      .replace(/\u0626/g, '\u06CC')
-      // Remove zero-width non-joiner and zero-width joiner
-      .replace(/[\u200C\u200D]/g, '')
-      // Collapse whitespace
-      .replace(/\s+/g, ' ')
-      .trim()
-      .toLowerCase();
-  }
 
   function applyFilters() {
     var items = document.querySelectorAll('.timeline-item[data-category]');
     var visible = 0;
-    var searchTerms = normalizeText(activeSearch)
-      .split(' ')
-      .filter(function(t) { return t.length > 0; });
 
     items.forEach(function(a) {
       var catMatch = activeCat === 'all' || a.dataset.category === activeCat;
       var eraMatch = activeEra === 'all' || a.dataset.era === activeEra;
-      var searchMatch = true;
-      if (searchTerms.length > 0) {
-        var haystack = normalizeText(a.dataset.search || '');
-        searchMatch = searchTerms.every(function(term) {
-          return haystack.indexOf(term) !== -1;
-        });
-      }
-      if (catMatch && eraMatch && searchMatch) {
+      if (catMatch && eraMatch) {
         a.style.display = '';
         visible++;
       } else {
@@ -253,7 +209,7 @@ layout: default
 
     var filterCount = document.getElementById('filter-count');
     if (filterCount) {
-      var isFiltered = activeCat !== 'all' || activeEra !== 'all' || activeSearch !== '';
+      var isFiltered = activeCat !== 'all' || activeEra !== 'all';
       if (isFiltered) {
         filterCount.textContent = visible + ' رویداد یافت شد';
         filterCount.style.display = '';
@@ -278,49 +234,6 @@ layout: default
       applyFilters();
     });
   });
-
-  // Search input handling
-  var searchInput = document.getElementById('search-input');
-  var searchClear = document.getElementById('search-clear');
-  var searchHint  = document.getElementById('search-hint');
-  var searchTimer;
-
-  if (searchInput) {
-    searchInput.addEventListener('input', function() {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(function() {
-        activeSearch = searchInput.value;
-        searchClear.style.display = activeSearch ? '' : 'none';
-        if (searchHint) {
-          searchHint.textContent = activeSearch
-            ? ('جستجو: «' + activeSearch + '»')
-            : '';
-        }
-        applyFilters();
-      }, 200);
-    });
-
-    searchInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        searchInput.value = '';
-        activeSearch = '';
-        searchClear.style.display = 'none';
-        if (searchHint) searchHint.textContent = '';
-        applyFilters();
-      }
-    });
-  }
-
-  if (searchClear) {
-    searchClear.addEventListener('click', function() {
-      searchInput.value = '';
-      activeSearch = '';
-      searchClear.style.display = 'none';
-      if (searchHint) searchHint.textContent = '';
-      searchInput.focus();
-      applyFilters();
-    });
-  }
 
   // Wire up the visible "all" button to the hidden one
   var tlAllBtn = document.getElementById('tl-all-btn');
