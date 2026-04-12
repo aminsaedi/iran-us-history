@@ -28,6 +28,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Prevent horizontal scroll caused by negative-margin full-bleed elements,
+   scroll-reveal transforms, and other subtle overflow sources.
+   Using 'clip' instead of 'hidden' so position:sticky on .era-nav still works. */
+html { overflow-x: clip; }
+
 body {
   background: #f7f8fc;
   color: #1A1A1A;
@@ -470,7 +475,7 @@ header p { color: #556080; font-size: 0.9rem; }
   color: #e94560;
 }
 
-main { padding: 2rem; max-width: 1400px; margin: auto; }
+main { padding: 2rem; max-width: 1400px; margin: auto; overflow-x: clip; }
 
 /* Era chapter opener (TGD-015) */
 .era-section {
