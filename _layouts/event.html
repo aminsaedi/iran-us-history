@@ -36,9 +36,6 @@ layout: default
     max-width: 1540px;
     margin: 0 auto;
   }
-  .event-page-wrapper.has-toc.has-sources {
-    grid-template-columns: 220px 1fr 280px;
-  }
   .event-page-wrapper.has-toc .toc-sidebar {
     display: flex;
     flex-direction: column;
@@ -61,10 +58,6 @@ layout: default
   }
   .event-page-wrapper.has-toc .event-page {
     grid-column: 2;
-    grid-row: 1;
-  }
-  .event-page-wrapper.has-toc.has-sources .sources-sidebar {
-    grid-column: 3;
     grid-row: 1;
   }
   .toc-toggle {
@@ -380,7 +373,7 @@ layout: default
 [data-theme="dark"] .toc-accordion-nav .toc-link.active { background: rgba(233,69,96,0.1); }
 </style>
 
-<div class="event-page-wrapper{% if page.sources %} has-sources{% endif %}">
+<div class="event-page-wrapper">
 
   <!-- Table of Contents (populated by JS when ≥3 headings found) -->
   <aside class="toc-sidebar" id="tocSidebar" aria-label="فهرست مطالب">
@@ -616,80 +609,9 @@ layout: default
 
   </main>
 
-  <!-- Source Attribution Sidebar -->
-  <aside class="sources-sidebar" id="sourcesSidebar" aria-label="منابع و استنادات">
-    <button class="sources-toggle" id="sourcesToggle" aria-expanded="true" aria-controls="sourcesSidebar">
-      <span class="sources-toggle-icon" aria-hidden="true">📚</span>
-      <span class="sources-toggle-label">منابع</span>
-      <span class="sources-toggle-arrow" aria-hidden="true">›</span>
-    </button>
-
-    <div class="sources-panel" id="sourcesPanel">
-      <div class="sources-header">
-        <h2 class="sources-title">زنجیره استناد</h2>
-        <p class="sources-subtitle">هر ادعا در این صفحه قابل ردیابی است</p>
-      </div>
-
-      <div class="sources-list">
-        {% if page.sources %}
-          {% for source in page.sources %}
-          <div class="source-item source-type-{{ source.type | default: 'secondary' }}">
-            <div class="source-type-badge">
-              {% if source.type == 'primary' %}سند اولیه
-              {% elsif source.type == 'book' %}کتاب
-              {% else %}منبع ثانویه{% endif %}
-            </div>
-            {% if source.url %}
-            <a href="{{ source.url }}" target="_blank" rel="noopener noreferrer" class="source-link" lang="en">
-              {{ source.title }}
-              <span class="source-ext-icon" aria-hidden="true">↗</span>
-            </a>
-            <a href="https://web.archive.org/web/{{ source.url }}" target="_blank" rel="noopener noreferrer" class="source-archived-link" lang="en" title="Archived version on Wayback Machine">⏎ archived</a>
-            {% else %}
-            <span class="source-title" lang="en">{{ source.title }}</span>
-            {% endif %}
-          </div>
-          {% endfor %}
-        {% else %}
-          <div class="sources-empty">
-            <p>منابع این رویداد به زودی اضافه می‌شوند.</p>
-          </div>
-        {% endif %}
-      </div>
-
-      <div class="sources-footer">
-        <p>دقت اطلاعات — رسالت اصلی این سایت</p>
-      </div>
-    </div>
-  </aside>
 
 </div>
 
-<script>
-(function() {
-  var toggle = document.getElementById('sourcesToggle');
-  var sidebar = document.getElementById('sourcesSidebar');
-  if (!toggle || !sidebar) return;
-
-  // Default collapsed on mobile; restore user preference from localStorage if set
-  var isMobile = window.innerWidth < 1100;
-  var collapsed = isMobile;
-  try {
-    var stored = localStorage.getItem('sourcesSidebarCollapsed');
-    if (stored !== null) collapsed = stored === 'true';
-  } catch (e) {}
-  if (collapsed) {
-    sidebar.classList.add('collapsed');
-    toggle.setAttribute('aria-expanded', 'false');
-  }
-
-  toggle.addEventListener('click', function() {
-    var isCollapsed = sidebar.classList.toggle('collapsed');
-    toggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
-    try { localStorage.setItem('sourcesSidebarCollapsed', isCollapsed); } catch (e) {}
-  });
-})();
-</script>
 
 <script>
 (function() {
