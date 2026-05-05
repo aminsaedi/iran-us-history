@@ -3374,11 +3374,20 @@ header {
   color: #4a5878;
 }
 
-[data-theme="dark"] .related-events-section { background: #0d1219; }
-[data-theme="dark"] .related-events-section h2 { color: #c8d8f0; }
+[data-theme="dark"] .related-events-title { color: #8898b8; }
 [data-theme="dark"] .related-event-card { background: #141c2e; border-color: #1e2d4a; color: #b8cce8; }
 [data-theme="dark"] .related-event-card:hover { background: #1a2840; }
 [data-theme="dark"] .related-event-title { color: #e0eeff; }
+
+[data-theme="dark"] .event-era-info { background: #141c2e; }
+[data-theme="dark"] .event-era-info p { color: #8898b8; }
+
+[data-theme="dark"] .event-nav { border-top-color: #1e2d4a; }
+[data-theme="dark"] .nav-btn { background: #172035; }
+[data-theme="dark"] .nav-btn:hover { background: #1e2d4a; }
+[data-theme="dark"] .nav-label { color: #8898b8; }
+[data-theme="dark"] .nav-title { color: #c8d8f0; }
+[data-theme="dark"] .nav-arrow { color: #5a6a8a; }
 
 /* Back-to-top in dark mode */
 [data-theme="dark"] #back-to-top {
