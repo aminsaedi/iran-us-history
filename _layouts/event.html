@@ -588,7 +588,7 @@ layout: default
           {% assign prev_index = current_index | minus: 1 %}
           {% assign prev_event = all_events[prev_index] %}
           <a href="{{ prev_event.url | relative_url }}" class="nav-btn prev" aria-label="رویداد قبلی: {{ prev_event.title }}">
-            <span class="nav-arrow" aria-hidden="true">›</span>
+            <span class="nav-arrow" dir="ltr" aria-hidden="true">›</span>
             <span class="nav-content">
               <span class="nav-label">رویداد قبلی</span>
               <span class="nav-year">{{ prev_event.year }}</span>
@@ -608,7 +608,7 @@ layout: default
               <span class="nav-year">{{ next_event.year }}</span>
               <span class="nav-title">{{ next_event.title }}</span>
             </span>
-            <span class="nav-arrow" aria-hidden="true">‹</span>
+            <span class="nav-arrow" dir="ltr" aria-hidden="true">‹</span>
           </a>
         {% endif %}
       </nav>
