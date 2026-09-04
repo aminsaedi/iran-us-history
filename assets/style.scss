@@ -1518,11 +1518,21 @@ article:hover img {
    at all widths — making it static would turn it into a flex sibling of the
    hero content and break the layout. */
 @media screen and (max-width: 700px) {
+  /* Narrow screens: drop the descriptive caption (it is repeated in the article
+     text) and keep only the attribution the licence requires, on one line, so it
+     cannot collide with the date/category badges below it. */
   .event-hero-credit {
-    max-width: 85%;
-    font-size: 0.66rem;
+    max-width: calc(100% - 1.5rem);
+    inset-inline-end: 0.75rem;
+    top: 0.5rem;
   }
-  .event-hero-credit .hero-credit-attrib { font-size: 0.6rem; }
+  .event-hero-credit .hero-credit-caption { display: none; }
+  .event-hero-credit .hero-credit-attrib {
+    font-size: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .event-hero-desc {
@@ -2446,6 +2456,10 @@ footer a:hover { color: #ff6b84; text-decoration: underline; }
 
   .event-hero-content {
     padding: 1.5rem;
+  }
+
+  .event-hero:has(.event-hero-credit) .event-hero-content {
+    padding-top: 2.25rem;
   }
 
   .event-hero-desc {
