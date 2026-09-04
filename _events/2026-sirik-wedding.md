@@ -9,6 +9,12 @@ era_label: "۲۰۲۵–اکنون"
 category: military
 category_label: "نظامی"
 featured: false
+image: "/assets/images/events/kuhestak-wedding.jpg"
+image_caption: "خانه ویران‌شده در کوهستک پس از اصابت موشک به مراسم عروسی، ۱ سپتامبر ۲۰۲۶"
+image_credit: "مسعود محمدی / Mehr News Agency"
+image_license: "CC BY 4.0"
+image_license_url: "https://creativecommons.org/licenses/by/4.0/"
+image_source: "https://commons.wikimedia.org/wiki/File:Kuhestak_wedding_attack.jpg"
 description: "موشک آمریکایی به خانه‌ای در کوهستک اصابت کرد که ده‌ها نفر در جشن عروسی دختر یک ماهیگیر جمع بودند؛ دو زن و دو کودک ۴ و ۱۶ ساله کشته و دست‌کم ۶۸ نفر زخمی شدند."
 sources:
   - title: "What do we know about the fatal US bombing of a wedding in Iran's Sirik?"

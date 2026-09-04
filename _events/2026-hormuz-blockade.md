@@ -9,12 +9,11 @@ era_label: "۲۰۲۵–اکنون"
 category: sanction
 category_label: "تحریم"
 featured: false
-image: "/assets/images/events/kharg-island.jpg"
-image_caption: "نفتکش در حال بارگیری در پایانه نفتی جزیره خارک (عکس آرشیوی، ۲۰۲۲) — بارگیری در این پایانه از ۳۱ ژوئیه ۲۰۲۶ متوقف شد"
-image_credit: "Reza Hatami / Tasnim News Agency"
-image_license: "CC BY 4.0"
-image_license_url: "https://creativecommons.org/licenses/by/4.0/"
-image_source: "https://commons.wikimedia.org/wiki/File:Kharg_Island_in_2022_(13).jpg"
+image: "/assets/images/events/blockade-pinckney.jpg"
+image_caption: "ناوشکن آمریکایی USS Pinckney در جریان عملیات محاصره دریایی ایران"
+image_credit: "NAVCENT Public Affairs"
+image_license: "Public domain (U.S. Gov work)"
+image_source: "https://commons.wikimedia.org/wiki/File:Pinckney_conducts_blockade_operations_(9629147).jpg"
 description: "پس از شکست مذاکرات اسلام‌آباد، ترامپ محاصره دریایی بنادر ایران را فرمان داد؛ صادرات نفت از جزیره خارک متوقف شد و تردد تجاری تنگه هرمز بیش از ۹۰ درصد کاهش یافت."
 sources:
   - title: "Trump says U.S. will destroy Iran's oil wells, Kharg Island without deal to 'immediately' reopen Hormuz Strait"

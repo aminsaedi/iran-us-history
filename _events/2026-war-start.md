@@ -10,10 +10,10 @@ category: military
 category_label: "نظامی"
 featured: true
 image: "/assets/images/events/epic-fury-b1b.jpg"
-image_caption: "بمب‌افکن B-1B نیروی هوایی آمریکا در حال برخاستن — از جمله بمب‌افکن‌هایی که در عملیات «خشم حماسی» به کار گرفته شدند (عکس آرشیوی، ۲۰۲۵)"
-image_credit: "U.S. Air Force photo by Senior Airman Brittany Kenney"
+image_caption: "بمب‌افکن B-1B در جریان عملیات «خشم حماسی»"
+image_credit: "U.S. Air Force / NAVCENT"
 image_license: "Public domain (U.S. Gov work)"
-image_source: "https://commons.wikimedia.org/wiki/File:A_B-1B_Lancer_assigned_to_the_34th_Expeditionary_Bomb_Squadron_takes_off_to_conduct_one_of_the_last_flying_sorties_in_support_of_BTF_25-1,_Mar_6,_2025_(8904184).jpg"
+image_source: "https://commons.wikimedia.org/wiki/File:B-1B_Lancers_support_Operation_Epic_Fury_(9552673).jpg"
 description: "در ۲۸ فوریه ۲۰۲۶ آمریکا و اسرائیل حمله هوایی سراسری به ایران را با هدف اعلام‌شده تغییر حکومت آغاز کردند؛ رهبر ایران در نخستین ساعت کشته شد و جنگی آغاز شد که تا امروز ادامه دارد."
 sources:
   - title: "2026 Iran war"

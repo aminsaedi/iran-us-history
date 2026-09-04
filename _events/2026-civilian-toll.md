@@ -9,6 +9,12 @@ era_label: "۲۰۲۵–اکنون"
 category: military
 category_label: "نظامی"
 featured: false
+image: "/assets/images/events/residential-strike.jpg"
+image_caption: "ساکنان شهرک مسکونی شهید بروجردی در میان آوار خانه‌هایشان پس از حمله هوایی"
+image_credit: "محمد برنو / Avash Photo"
+image_license: "CC BY 4.0"
+image_license_url: "https://creativecommons.org/licenses/by/4.0/"
+image_source: "https://commons.wikimedia.org/wiki/File:Airstrike_on_the_residential_town_of_Shahid_Boroujerdi_11_Avash.webp"
 description: "بیش از ۳٬۴۰۰ غیرنظامی کشته، بیش از ۳۳ هزار زخمی، ۱۰۰ هزار واحد مسکونی آسیب‌دیده و ده‌ها مرکز درمانی هدف حمله — جمع‌بندی مستند هزینه انسانی جنگ ۲۰۲۶."
 sources:
   - title: "Urgent call to protect civilians and respect international law amid escalating regional conflict following US and Israeli attacks on Iran"

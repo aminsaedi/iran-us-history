@@ -9,12 +9,6 @@ era_label: "۲۰۲۵–اکنون"
 category: military
 category_label: "نظامی"
 featured: false
-image: "/assets/images/events/south-pars.jpg"
-image_caption: "مجتمع گاز پارس جنوبی در عسلویه (عکس آرشیوی، پیش از جنگ)"
-image_credit: "Hamed Malekpour / Tasnim News Agency"
-image_license: "CC BY 4.0"
-image_license_url: "https://creativecommons.org/licenses/by/4.0/"
-image_source: "https://commons.wikimedia.org/wiki/File:South_Pars_Onshore_Facilities_(2).jpg"
 description: "میدان گازی پارس جنوبی، پالایشگاه‌های تهران، فولاد خوزستان و فولاد مبارکه در مارس ۲۰۲۶ بمباران شدند — صنایعی که تولیدشان عمدتاً مصرف داخلی ایران را تأمین می‌کرد."
 sources:
   - title: "2026 South Pars field attack"

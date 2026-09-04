@@ -9,11 +9,11 @@ era_label: "۲۰۲۵–اکنون"
 category: military
 category_label: "نظامی"
 featured: true
-image: "/assets/images/events/b2-bombing.jpg"
-image_caption: "بمب‌افکن رادارگریز B-2 Spirit — تنها هواپیمای قادر به حمل بمب سنگرشکن GBU-57 (عکس آرشیوی)"
-image_credit: "U.S. Air Force photo"
+image: "/assets/images/events/midnight-hammer-b2.jpg"
+image_caption: "بمب‌افکن B-2 در جریان عملیات «چکش نیمه‌شب» — تصویر با دوربین دید در شب"
+image_credit: "U.S. Air Force"
 image_license: "Public domain (U.S. Gov work)"
-image_source: "https://commons.wikimedia.org/wiki/File:B-2_Spirit_Stealth_Bomber_takes_flight_from_Naval_Support_Facility_Diego_Garcia_(6328413).jpg"
+image_source: "https://commons.wikimedia.org/wiki/File:The_B-2_Spirit_supports_Operation_MIDNIGHT_HAMMER.jpg"
 description: "در ۲۲ ژوئن ۲۰۲۵، بمب‌افکن‌های B-2 با ۱۴ بمب سنگرشکن GBU-57 تأسیسات هسته‌ای فردو، نطنز و اصفهان را بمباران کردند — نخستین حمله آمریکا به خاک ایران از ۱۹۸۸."
 sources:
   - title: "June 2025 United States strikes on Iran (Operation Midnight Hammer)"
