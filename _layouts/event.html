@@ -443,7 +443,7 @@ layout: default
       {% assign detail_reading_min = content | strip_html | number_of_words | plus: 199 | divided_by: 200 %}{% if detail_reading_min < 1 %}{% assign detail_reading_min = 1 %}{% endif %}{% assign detail_rm_str = detail_reading_min | append: "" | replace: '0', '۰' | replace: '1', '۱' | replace: '2', '۲' | replace: '3', '۳' | replace: '4', '۴' | replace: '5', '۵' | replace: '6', '۶' | replace: '7', '۷' | replace: '8', '۸' | replace: '9', '۹' %}
       {% if page.image %}{% assign hero_img_webp = page.image | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
       <!-- Full-bleed hero — LCP image in DOM for immediate preload-scanner discovery -->
-      <div class="event-hero">
+      <figure class="event-hero">
         <picture>
           <source srcset="{{ hero_img_webp }}" type="image/webp">
           <img src="{{ page.image }}" alt="{{ page.title }}"
@@ -464,7 +464,13 @@ layout: default
           <p class="event-hero-desc" lang="fa">{{ page.description }}</p>
           {% endif %}
         </div>
-      </div>
+        {% if page.image_credit %}
+        <figcaption class="event-hero-credit" lang="fa">
+          {% if page.image_caption %}<span class="hero-credit-caption">{{ page.image_caption }}</span>{% endif %}
+          <span class="hero-credit-attrib" lang="en">{% if page.image_source %}<a href="{{ page.image_source }}" target="_blank" rel="noopener noreferrer">{{ page.image_credit }}</a>{% else %}{{ page.image_credit }}{% endif %}{% if page.image_license %} · {% if page.image_license_url %}<a href="{{ page.image_license_url }}" target="_blank" rel="noopener noreferrer">{{ page.image_license }}</a>{% else %}{{ page.image_license }}{% endif %}{% endif %}</span>
+        </figcaption>
+        {% endif %}
+      </figure>
       {% else %}
       <!-- No image: text-only header -->
       <div class="event-header-plain event-header-cat-{{ page.category }}">

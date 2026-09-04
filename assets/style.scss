@@ -1482,6 +1482,49 @@ article:hover img {
   width: 100%;
 }
 
+/* Image attribution overlay — required for CC BY / CC BY-SA sourced photos */
+.event-hero-credit {
+  position: absolute;
+  z-index: 2;
+  top: 0.6rem;
+  inset-inline-end: 0.75rem;
+  max-width: min(52ch, 70%);
+  text-align: end;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.event-hero-credit .hero-credit-caption { display: block; }
+
+.event-hero-credit .hero-credit-attrib {
+  display: block;
+  font-size: 0.66rem;
+  color: rgba(255, 255, 255, 0.62);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.event-hero-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.event-hero-credit a:hover { color: #fff; }
+
+/* .event-hero is a flex container, so the credit stays absolutely positioned
+   at all widths — making it static would turn it into a flex sibling of the
+   hero content and break the layout. */
+@media screen and (max-width: 700px) {
+  .event-hero-credit {
+    max-width: 85%;
+    font-size: 0.66rem;
+  }
+  .event-hero-credit .hero-credit-attrib { font-size: 0.6rem; }
+}
+
 .event-hero-desc {
   font-size: 1.05rem;
   color: #e8eef8;

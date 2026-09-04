@@ -32,6 +32,11 @@ category: military        # coup|sanction|military|cyber|diplo|intel
 category_label: "فارسی label"
 featured: false           # true = spans 2 rows in grid
 image: "/assets/images/events/name.jpg"   # optional
+image_caption: "فارسی caption shown over the hero"        # optional
+image_credit: "Photographer / Agency"                     # REQUIRED with image
+image_license: "CC BY 4.0"                                # REQUIRED with image
+image_license_url: "https://creativecommons.org/licenses/by/4.0/"
+image_source: "https://commons.wikimedia.org/wiki/File:..."
 description: "One-sentence summary for cards and meta tags"
 sources:                  # REQUIRED — cite a specific article URL, never a site homepage
   - title: "Source title"
@@ -45,6 +50,29 @@ Event description in Farsi here.
 ```
 
 `index.html` sorts events within each era by `order`, so every event file must have one.
+
+## Images
+
+Only use images that are public domain or Creative Commons licensed — no press-agency
+photos (Reuters/AP/AFP). Wikimedia Commons is the practical source; verify the license via
+the Commons API rather than trusting the file page, and record `image_credit`,
+`image_license` and `image_source` in front matter. CC BY / CC BY-SA **require** visible
+attribution, which `_layouts/event.html` renders as a `<figcaption>` over the hero.
+
+Do not crop out embedded agency watermarks — they carry the attribution the licence requires.
+
+Optimize before committing (roughly what the existing files use):
+
+```bash
+magick in.jpg -auto-orient -strip -resize '1000>' -quality 80 \
+  -sampling-factor 4:2:0 -interlace JPEG assets/images/events/name.jpg
+magick in.jpg -auto-orient -strip -resize '1000>' -quality 72 \
+  -define webp:method=6 assets/images/events/name.webp
+```
+
+Use `1400>` for `featured: true` events (rendered as a wide banner), `1000>` otherwise.
+Both a `.jpg` and a matching `.webp` are required — the templates emit a `<picture>` with
+the WebP as the preferred source and the JPEG as fallback.
 
 ## Build & Deploy
 

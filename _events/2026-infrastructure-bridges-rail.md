@@ -9,6 +9,12 @@ era_label: "۲۰۲۵–اکنون"
 category: military
 category_label: "نظامی"
 featured: false
+image: "/assets/images/events/karaj-b1-bridge.jpg"
+image_caption: "دهانه بریده‌شده پل B1 کرج پس از حمله ۲ آوریل ۲۰۲۶"
+image_credit: "Nadia Pormah / Mehr News Agency"
+image_license: "CC BY 4.0"
+image_license_url: "https://creativecommons.org/licenses/by/4.0/"
+image_source: "https://commons.wikimedia.org/wiki/File:Attack_on_Karaj_B1_bridge_3.jpg"
 description: "یک روز پس از تهدید ترامپ به بازگرداندن ایران «به عصر حجر»، بلندترین پل خاورمیانه در کرج بمباران شد؛ ۸ کشته و ۹۵ زخمی، عمدتاً مردمی که سیزده‌به‌در را زیر پل جشن می‌گرفتند."
 sources:
   - title: "2026 Karaj B1 bridge attack"

@@ -9,6 +9,12 @@ era_label: "۲۰۲۵–اکنون"
 category: military
 category_label: "نظامی"
 featured: false
+image: "/assets/images/events/minab-dam.jpg"
+image_caption: "سد میناب در استان هرمزگان و چشم‌انداز خشک پیرامون آن (عکس آرشیوی)"
+image_credit: "Okruz (Wikimedia Commons)"
+image_license: "CC BY-SA 4.0"
+image_license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+image_source: "https://commons.wikimedia.org/wiki/File:Dam_in_Minab,_Hormozgan,_Iran.jpg"
 description: "آمریکا آب‌شیرین‌کن قشم و سپس مخازن آب سیریک را بمباران کرد؛ آب آشامیدنی بیش از ۲۰ هزار نفر در گرمای بالای ۴۵ درجه قطع شد — در کشوری که پنجمین سال خشکسالی را می‌گذراند."
 sources:
   - title: "US bombs Iran's water facilities: Why that's so significant"
