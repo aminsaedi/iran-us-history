@@ -1,14 +1,15 @@
 # The Great Devil — US Interventions in Iran
 # https://thegreatdevil.com
 
-> A documented timeline of over 50 US interventions in Iran's internal affairs,
-> from 1900 to today — coups, sanctions, cyber attacks, assassinations, and military strikes.
+> A documented timeline of 57 US interventions in Iran's internal affairs,
+> from 1901 to the ongoing 2026 war — coups, sanctions, cyber attacks, assassinations,
+> military strikes, and attacks on civilian infrastructure.
 > Content is in Farsi (Persian) with English metadata.
 
 ## About This Site
 
 This site documents historical US actions that directly interfered with Iran's sovereignty,
-political system, economy, and people. Events are organized by era from 1900 to 2025.
+political system, economy, and people. Events are organized by era from 1901 to the present (the 2026 Iran war is ongoing).
 
 Each event page includes:
 - Year and category (coup, sanction, military, cyber, intelligence, diplomatic)
@@ -28,7 +29,17 @@ Each event page includes:
 - 2015: JCPOA nuclear deal
 - 2018: Trump's unilateral withdrawal from JCPOA
 - 2020: Assassination of General Qasem Soleimani
-- 2025: Direct US military strikes on Iranian soil
+- Jun 2025: Operation Midnight Hammer — B-2 strikes on Fordow, Natanz and Isfahan (Twelve-Day War)
+- 28 Feb 2026: Operation Epic Fury — start of the ongoing 2026 Iran war; Supreme Leader Ali Khamenei
+  killed in a joint CIA/Mossad-planned strike; Shajareh Tayyebeh girls' school in Minab hit
+  (156-180 killed, ~120 of them children, per Amnesty International)
+- Mar 2026: Strikes on South Pars gas field, Tehran refineries, Khuzestan and Mobarakeh steel,
+  Qeshm desalination plant, and Iranian universities
+- 16-17 Mar 2026: Assassination of Ali Larijani
+- 2 Apr 2026: Karaj B1 bridge destroyed after Trump's "Stone Ages" threat (8 killed, 95 wounded)
+- Apr 2026: US naval blockade of Iranian ports; Kharg Island oil exports halted
+- 10 Jun 2026: US bombs Sirik water reservoirs, cutting drinking water for 20,000 people
+- 1 Sep 2026: US strike on a wedding party in Kuhestak, Sirik (4 killed incl. two children, 68 wounded)
 
 ## Site Structure
 
@@ -43,3 +54,6 @@ Each event page includes:
 - Britannica: https://www.britannica.com/topic/US-Iran-Relations-A-Timeline
 - Iran Primer (USIP): https://iranprimer.usip.org/resource/timeline-us-sanctions
 - GWU National Security Archive: https://nsarchive2.gwu.edu/NSAEBB/NSAEBB435/
+- Amnesty International (2026 war reporting): https://www.amnesty.org/en/latest/news/2026/03/
+- HRANA casualty documentation: https://www.en-hrana.org/
+- UK House of Commons Library briefing: https://commonslibrary.parliament.uk/research-briefings/cbp-10637/

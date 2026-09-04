@@ -84,7 +84,7 @@ layout: default
       <div class="era-range-tag">{{ first_event.era_range }}</div>
     </div>
     <div class="timeline-wrapper">
-      {% assign sorted_era_events = era_group.items | sort: "name" %}
+      {% assign sorted_era_events = era_group.items | sort: "order" %}
       {% for event in sorted_era_events %}
       {% assign _ev_gy = event.path | split: "/" | last | split: "-" | first | plus: 0 %}{% assign _ev_sy = _ev_gy | minus: 621 %}{% capture _ev_sy_str %}{{ _ev_sy }}{% endcapture %}{% assign _ev_sy_fa = _ev_sy_str | replace: '0', '۰' | replace: '1', '۱' | replace: '2', '۲' | replace: '3', '۳' | replace: '4', '۴' | replace: '5', '۵' | replace: '6', '۶' | replace: '7', '۷' | replace: '8', '۸' | replace: '9', '۹' %}
       <div class="timeline-item{% if event.featured %} featured-item{% endif %}" data-category="{{ event.category }}" data-era="{{ event.era_id }}">

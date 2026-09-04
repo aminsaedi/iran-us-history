@@ -1,6 +1,7 @@
 ---
 title: "پایگاه‌های شنود CIA در ایران"
 year: "۱۹۷۶"
+order: 3
 era_id: era-1970
 era_title: "دهه ۱۹۷۰"
 era_range: "پشتیبانی از شاه و انقلاب"

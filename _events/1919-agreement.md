@@ -1,6 +1,7 @@
 ---
 title: "قرارداد ۱۹۱۹ انگلیس–ایران"
 year: "۱۹۱۹"
+order: 3
 era_id: era-1900
 era_title: "دوره اول"
 era_range: "۱۹۰۰–۱۹۴۰"

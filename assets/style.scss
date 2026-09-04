@@ -1751,6 +1751,37 @@ article:hover img {
   line-height: 2;
 }
 
+/* Markdown tables in event bodies (timelines, casualty figures, source comparisons).
+   Kramdown emits a bare <table>, so it must be styled and made scrollable directly —
+   there is no wrapper element to hang overflow on. */
+.event-body table {
+  display: block;          /* enables horizontal scroll on narrow screens */
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.event-body th,
+.event-body td {
+  border: 1px solid #c8d4e8;
+  padding: 0.6rem 0.85rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+.event-body th {
+  background: #eef4fc;
+  color: #1a2a4a;
+  font-weight: 700;
+}
+
+.event-body tbody tr:nth-child(even) td { background: rgba(240, 245, 252, 0.55); }
+
 /* Sources section — numbered footnote list (academic/documentary style) */
 .sources-section {
   margin: 3rem 0 1.5rem;
@@ -3062,6 +3093,10 @@ header {
   border-right-color: rgba(233,69,96,0.5);
   color: #a8bcdc;
 }
+[data-theme="dark"] .event-body th,
+[data-theme="dark"] .event-body td    { border-color: #2a3d5e; }
+[data-theme="dark"] .event-body th    { background: #1e2d4a; color: #e0eeff; }
+[data-theme="dark"] .event-body tbody tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
 [data-theme="dark"] .event-body a     { color: #7eb8e8; }
 [data-theme="dark"] .event-body a:hover { color: #a8d0ff; }
 

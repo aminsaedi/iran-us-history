@@ -1,6 +1,7 @@
 ---
 title: "اتهام بمب‌گذاری خبر"
 year: "۱۹۹۷"
+order: 3
 era_id: era-1990
 era_title: "دهه ۱۹۹۰"
 era_range: "تحریم‌های جامع"

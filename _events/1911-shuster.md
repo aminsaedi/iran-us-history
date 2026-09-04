@@ -1,6 +1,7 @@
 ---
 title: "مورگان شوستر و فشار خارجی"
 year: "۱۹۱۱"
+order: 2
 era_id: era-1900
 era_title: "دوره اول"
 era_range: "۱۹۰۰–۱۹۴۰"

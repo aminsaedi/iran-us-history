@@ -1,10 +1,11 @@
 ---
 title: "بازمسدودسازی ۶ میلیارد دلار"
 year: "اکتبر ۲۰۲۳"
+order: 4
 era_id: era-2020
 era_title: "دهه ۲۰۲۰"
-era_range: "ترور، تنش، حمله مستقیم"
-era_label: "۲۰۲۰–اکنون"
+era_range: "ترور سلیمانی، بن‌بست هسته‌ای، تنش"
+era_label: "۲۰۲۰–۲۰۲۴"
 category: sanction
 category_label: "تحریم"
 featured: false

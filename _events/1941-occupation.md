@@ -1,6 +1,7 @@
 ---
 title: "اشغال مشترک ایران"
 year: "۱۹۴۱"
+order: 4
 era_id: era-1900
 era_title: "دوره اول"
 era_range: "۱۹۰۰–۱۹۴۰"

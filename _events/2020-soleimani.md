@@ -1,10 +1,11 @@
 ---
 title: "ترور سردار قاسم سلیمانی"
 year: "۳ ژانویه ۲۰۲۰"
+order: 1
 era_id: era-2020
 era_title: "دهه ۲۰۲۰"
-era_range: "ترور، تنش، حمله مستقیم"
-era_label: "۲۰۲۰–اکنون"
+era_range: "ترور سلیمانی، بن‌بست هسته‌ای، تنش"
+era_label: "۲۰۲۰–۲۰۲۴"
 category: military
 category_label: "نظامی"
 featured: true

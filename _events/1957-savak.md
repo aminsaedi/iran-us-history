@@ -1,6 +1,7 @@
 ---
 title: "تأسیس ساواک با کمک CIA"
 year: "۱۹۵۷"
+order: 4
 era_id: era-1950
 era_title: "دهه‌های ۱۹۵۰–۱۹۶۰"
 era_range: "کودتا و استقرار شاه"
