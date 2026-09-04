@@ -1482,28 +1482,33 @@ article:hover img {
   width: 100%;
 }
 
-/* Image attribution overlay — required for CC BY / CC BY-SA sourced photos */
+/* Image attribution bar — sits under the hero, not over it, so it can never
+   collide with the title/badge stack. Required for CC BY / CC BY-SA sources. */
+.event-hero-figure {
+  margin: 0;
+  padding: 0;
+}
+
 .event-hero-credit {
-  position: absolute;
-  z-index: 2;
-  top: 0.6rem;
-  inset-inline-end: 0.75rem;
-  max-width: min(52ch, 70%);
-  text-align: end;
+  width: calc(100% + 4rem);
+  margin: 0 -2rem;
+  padding: 0.5rem 2rem 0.55rem;
+  background: #eef2f8;
+  border-bottom: 1px solid #d8e0ee;
   font-size: 0.72rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+  line-height: 1.7;
+  color: #4a5568;
 }
 
 .event-hero-credit .hero-credit-caption { display: block; }
 
 .event-hero-credit .hero-credit-attrib {
   display: block;
-  font-size: 0.66rem;
-  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.68rem;
+  color: #74809a;
   direction: ltr;
   unicode-bidi: isolate;
+  text-align: end;
 }
 
 .event-hero-credit a {
@@ -1512,27 +1517,16 @@ article:hover img {
   text-underline-offset: 2px;
 }
 
-.event-hero-credit a:hover { color: #fff; }
+.event-hero-credit a:hover { color: #1a2a4a; }
 
-/* .event-hero is a flex container, so the credit stays absolutely positioned
-   at all widths — making it static would turn it into a flex sibling of the
-   hero content and break the layout. */
 @media screen and (max-width: 700px) {
-  /* Narrow screens: drop the descriptive caption (it is repeated in the article
-     text) and keep only the attribution the licence requires, on one line, so it
-     cannot collide with the date/category badges below it. */
   .event-hero-credit {
-    max-width: calc(100% - 1.5rem);
-    inset-inline-end: 0.75rem;
-    top: 0.5rem;
+    width: calc(100% + 3rem);
+    margin: 0 -1.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.68rem;
   }
-  .event-hero-credit .hero-credit-caption { display: none; }
-  .event-hero-credit .hero-credit-attrib {
-    font-size: 0.6rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .event-hero-credit .hero-credit-attrib { font-size: 0.63rem; }
 }
 
 .event-hero-desc {
@@ -2458,10 +2452,6 @@ footer a:hover { color: #ff6b84; text-decoration: underline; }
     padding: 1.5rem;
   }
 
-  .event-hero:has(.event-hero-credit) .event-hero-content {
-    padding-top: 2.25rem;
-  }
-
   .event-hero-desc {
     font-size: 0.95rem;
   }
@@ -3154,6 +3144,13 @@ header {
 [data-theme="dark"] .event-body td    { border-color: #2a3d5e; }
 [data-theme="dark"] .event-body th    { background: #1e2d4a; color: #e0eeff; }
 [data-theme="dark"] .event-body tbody tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+[data-theme="dark"] .event-hero-credit {
+  background: #141c2e;
+  border-bottom-color: #1e2d4a;
+  color: #9fb0cc;
+}
+[data-theme="dark"] .event-hero-credit .hero-credit-attrib { color: #7d8ba6; }
+[data-theme="dark"] .event-hero-credit a:hover { color: #d8e6ff; }
 [data-theme="dark"] .event-body a     { color: #7eb8e8; }
 [data-theme="dark"] .event-body a:hover { color: #a8d0ff; }
 
